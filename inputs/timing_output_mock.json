@@ -1,0 +1,23 @@
+[
+    {
+        "ticker": "WGO",
+        "timing": "Next Morning Open",
+        "target_price": 45.20,
+        "confidence": "High",
+        "reasoning": "Strong earnings beat cited in report paired with -8% drop suggests immediate 'Overnight Drift' correction."
+    },
+    {
+        "ticker": "IRON",
+        "timing": "Next Morning Open",
+        "target_price": 85.00,
+        "confidence": "Medium",
+        "reasoning": "Overreaction to news requires overnight validation before entry."
+    },
+    {
+        "ticker": "BETR",
+        "timing": "Avoid",
+        "target_price": "Lower",
+        "confidence": "High",
+        "reasoning": "Fundamental concerns and high volatility make this a falling knife risk."
+    }
+]
