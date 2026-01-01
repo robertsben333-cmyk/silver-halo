@@ -9,12 +9,11 @@ __pycache__/
 # Environment Variables (Secrets)
 .env
 
-# Output Data (Large files)
-outputs/
-
 # Logs
 *.log
 service_err.log
 
 # VSCode
 .vscode/
+
+outputs/

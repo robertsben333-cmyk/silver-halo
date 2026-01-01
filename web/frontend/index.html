@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Halo | Intelligent Market Analysis</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar glass-panel">
+            <div class="brand">
+                <div class="logo-icon"><i class="fa-solid fa-ring"></i></div>
+                <h1>Silver Halo</h1>
+            </div>
+            
+            <div class="nav-links">
+                <button class="nav-btn active" data-view="dashboard">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </button>
+                <button class="nav-btn" data-view="analysis">
+                    <i class="fa-solid fa-microscope"></i> Analysis
+                </button>
+                <button class="nav-btn" data-view="losers">
+                    <i class="fa-solid fa-arrow-trend-down"></i> Top Losers
+                </button>
+            </div>
+            
+            <div class="status-indicator">
+                <span class="status-dot"></span> System Ready
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-bar glass-panel">
+                <h2 id="page-title">Dashboard</h2>
+                <div class="actions">
+                    <div id="latest-run-display">Latest Run: Loading...</div>
+                    <button id="refresh-btn" class="icon-btn"><i class="fa-solid fa-rotate"></i></button>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div id="views-container">
+                
+                <!-- Dashboard View -->
+                <section id="view-dashboard" class="view active">
+                    <div class="hero-card glass-panel">
+                        <h2>Market Analysis Execution</h2>
+                        <p>Run the advanced "Big Losers" workflow to identify oversold opportunities and potential downside continuations.</p>
+                        <button id="run-analysis-btn" class="primary-btn glow-effect">
+                            <i class="fa-solid fa-play"></i> Run Full Analysis
+                        </button>
+                        <div id="analysis-status" class="hidden">
+                            <div class="loader"></div>
+                            <span id="status-text">Initializing...</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card glass-panel">
+                            <h3>Promising Longs</h3>
+                            <div class="stat-value" id="stat-longs">-</div>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h3>Potential Shorts</h3>
+                            <div class="stat-value" id="stat-shorts">-</div>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h3>Analyzed Tickers</h3>
+                            <div class="stat-value" id="stat-total">-</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analysis View -->
+                <section id="view-analysis" class="view hidden">
+                    <div class="split-layout">
+                        <!-- Longs Column -->
+                        <div class="col-longs">
+                            <div class="section-header long-header">
+                                <i class="fa-solid fa-arrow-trend-up"></i> Promising Longs (Rebound)
+                            </div>
+                            <div id="longs-list" class="cards-list">
+                                <!-- Cards injected via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Shorts Column -->
+                        <div class="col-shorts">
+                            <div class="section-header short-header">
+                                <i class="fa-solid fa-arrow-trend-down"></i> Promising Shorts (Downside)
+                            </div>
+                            <div id="shorts-list" class="cards-list">
+                                <!-- Cards injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Losers View -->
+                <section id="view-losers" class="view hidden">
+                    <div class="glass-panel full-width">
+                        <h3><i class="fa-solid fa-list-ol"></i> Top 10 Losers (Last Run)</h3>
+                        <div class="table-container">
+                            <table id="losers-table">
+                                <thead>
+                                    <tr>
+                                        <th>Symbol</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>% Change</th>
+                                        <th>Volume</th>
+                                        <th>Sector</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows injected via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals or overlays can go here -->
+    <div id="graph-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-ticker-title">Ticker Analysis</h2>
+            <div class="chart-container">
+                <canvas id="priceChart"></canvas>
+            </div>
+            <div id="modal-details">
+                <!-- Detailed stats/news link -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>

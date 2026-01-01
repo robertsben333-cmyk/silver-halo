@@ -51,20 +51,18 @@ def md_table_to_html(md_content):
     html_lines.append("</table>")
     return "\n".join(html_lines)
 
-def json_timing_to_html(timing_data, title, top_n=4):
+def json_timing_to_html(timing_data, title, top_n=4, mode="rebound"):
     """Converts timing output JSON to an HTML table."""
     if not isinstance(timing_data, list) or not timing_data:
         return f"<p>No {title} timing data available.</p>"
 
-    # Sort if needed? Expected input is already sorted.
-    # Limit to Top N
     display_data = timing_data[:top_n]
 
     html_lines = [f"<h3>{title} (Top {len(display_data)})</h3>"]
     html_lines.append("<table border='1' style='border-collapse: collapse; width: 100%; font-size: 14px;'>")
     
     # Headers
-    headers = ["Ticker", "Action", "Score/Urgency", "Reasoning"]
+    headers = ["Ticker", "Action", "Entry Price", "Exit Target", "Reasoning"]
     html_lines.append("<tr>")
     for h in headers:
         html_lines.append(f"<th style='padding: 8px; text-align: left; background-color: #e0e0e0;'>{h}</th>")
@@ -73,21 +71,34 @@ def json_timing_to_html(timing_data, title, top_n=4):
     # Rows
     for item in display_data:
         html_lines.append("<tr>")
-        # Handle difference between Rebound (confidence/target) and Downside (urgency) schemas
-        # Unified display for simplicity
-        ticker = item.get('ticker', 'N/A')
         
-        # Try finding Action/Timing
+        ticker = item.get('ticker', 'N/A')
         action = item.get('timing', item.get('action', 'N/A'))
         
-        # Try finding Score/Confidence/Urgency
-        score_val = item.get('urgency_score')
-        if score_val is None:
-            score_val = f"{item.get('confidence', 'N/A')} (Tgt: {item.get('target_price', '-')})"
+        # Extract Price Levels based on mode
+        entry_price = "—"
+        exit_target = item.get('exit_target')
         
+        if mode == "rebound":
+            # Rebound: max_entry_price
+            val = item.get('max_entry_price')
+            if val is not None:
+                entry_price = f"< {val:.2f}"
+            else:
+                 # If no numeric price, check if action implies simply 'Avoid'
+                 pass
+        else:
+            # Downside: min_short_price
+            val = item.get('min_short_price')
+            if val is not None:
+                entry_price = f"> {val:.2f}"
+
+        # Format Exit
+        exit_str = f"{exit_target:.2f}" if exit_target is not None else "—"
+
         reason = item.get('reasoning', 'N/A')
 
-        row_data = [ticker, action, str(score_val), reason]
+        row_data = [ticker, action, entry_price, exit_str, reason]
         
         for cell in row_data:
             html_lines.append(f"<td style='padding: 8px; text-align: left;'>{cell}</td>")
@@ -170,7 +181,7 @@ def main():
         try:
             with open(args.timing_json, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                upside_timing_html = json_timing_to_html(data, "Rebound Timing Advice", top_n=4)
+                upside_timing_html = json_timing_to_html(data, "Rebound Timing Advice", top_n=4, mode="rebound")
         except Exception as e:
             upside_timing_html = f"<p>Error: {e}</p>"
 
@@ -189,7 +200,7 @@ def main():
         try:
             with open(args.downside_timing, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                downside_timing_html = json_timing_to_html(data, "Short Timing Advice", top_n=4)
+                downside_timing_html = json_timing_to_html(data, "Short Timing Advice", top_n=4, mode="downside")
         except Exception as e:
             downside_timing_html = f"<p>Error: {e}</p>"
 

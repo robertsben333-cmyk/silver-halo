@@ -27,19 +27,25 @@ py "$baseDir/apps/stock_losers.py" --output "$outDir/stock_losers_clean.json" --
 
 ## 3. Parallel Research (Manual/Agentic)
 
-**CRITICAL:** These are two separate mindset workflows. Do not conflate them.
+**CRITICAL:** These are two separate mindset workflows. Do not conflate them. You MUST perform distinct research for each branch for every stock, strictly following the respective Instruction Files.
 
 ### Branch A: Contrarian Reversal Scan (The Buyer)
 **Role:** Senior Equity Research Analyst (Long Bias).
 **Goal:** Find reasons the drop is an *overreaction*.
-**Search Focus:** "Oversold", "reaction", "support levels", "insider buying", "slight miss".
-**Action:** Perform search and create `raw_assessments.json`.
+**Instructions:**
+You MUST read and follow the **[Contrarian Instructions](file:///c:/Users/XavierFriesen/.gemini/antigravity/playground/silver-halo/inputs/instructions/instructions.md)**.
+*   **Step 1:** Read the "Evidence Gathering" and "Evidence Metrics" sections of the instructions.
+*   **Step 2:** Perform the research as defined in the instructions (News, Regulatory, Analyst, Sentiment).
+*   **Step 3:** Generate the `raw_assessments.json` file. **CRITICAL:** You must populate the `metrics` object (PCR, EC, SD, NRI, etc.) exactly as defined in the instructions.
 
 ### Branch B: Downside Continuation Scan (The Short Seller)
 **Role:** Forensic Accountant / Short Seller (Bear Bias).
 **Goal:** Find reasons the drop is *just the beginning*.
-**Search Focus:** "Fraud", "Investigation", "Accounting regularities", "Auditor resignation", "Dilution spiral", "Bankruptcy", "Lawsuit".
-**Action:** Perform search and create `downside_assessments.json`.
+**Instructions:**
+You MUST read and follow the **[Downside Instructions](file:///c:/Users/XavierFriesen/.gemini/antigravity/playground/silver-halo/inputs/instructions/downside_instructions.md)**.
+*   **Step 1:** Read the "Evidence gathering window" and "Determinant framework" sections.
+*   **Step 2:** Perform the research as defined in the instructions.
+*   **Step 3:** Generate the `downside_assessments.json` file. **CRITICAL:** You must populate the fields `driverCategory`, `downsideContinuationLikelihoodNextDay`, `shortCandidateScore`, etc., exactly as defined in the instructions.
 
 ## 4. Quantitative Scoring & Persistence
 
