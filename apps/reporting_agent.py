@@ -12,11 +12,22 @@ load_dotenv()
 def parse_args():
     parser = argparse.ArgumentParser(description="Send stock analysis report via email.")
     parser.add_argument("--summary_md", required=True, help="Path to summary_table.md (Contrarian)")
+    parser.add_argument("--contrarian_report", required=False, help="Path to stock_analysis_report.json (for Model Picks)")
     parser.add_argument("--timing_json", required=True, help="Path to timing_output.json (Contrarian)")
     parser.add_argument("--downside_report", required=False, help="Path to downside_report.json")
     parser.add_argument("--downside_timing", required=False, help="Path to downside_timing_output.json")
     parser.add_argument("--recipient", default="xavierjjc@outlook.com", help="Email recipient")
     return parser.parse_args()
+
+def clean_value(text):
+    """Helper to extract float from string."""
+    import re
+    if not isinstance(text, str):
+        return text
+    match = re.search(r"([-+]?\d*\.\d+|\d+)", text)
+    if match:
+        return float(match.group(1))
+    return None
 
 def md_table_to_html(md_content):
     """Converts a simple Markdown table to an HTML table."""
@@ -50,6 +61,69 @@ def md_table_to_html(md_content):
         
     html_lines.append("</table>")
     return "\n".join(html_lines)
+
+def generate_model_picks_table(report_data):
+    """Generates HTML table for Top Model Picks based on user criteria."""
+    if not report_data:
+        return ""
+    
+    # Filter candidates
+    # Criteria:
+    # a) Predicted Return > 3.9% (0.039)
+    # b) Final Score < -0.5
+    # c) Sentiment < -0.4 (assuming sentiment numeric)
+    
+    filtered = []
+    for item in report_data:
+        pred_return = item.get('modelReturnPrediction')
+        score = item.get('finalScore')
+        sentiment = clean_value(item.get('sentiment'))
+        
+        # Criteria Check
+        c1 = pred_return is not None and pred_return > 0.039
+        c2 = score is not None and score < -0.5
+        c3 = sentiment is not None and sentiment < -0.4
+        
+        if c1 or c2 or c3:
+            filtered.append(item)
+            
+    # Sort by Prediction (Descending), nulls last
+    filtered.sort(key=lambda x: x.get('modelReturnPrediction') if x.get('modelReturnPrediction') is not None else -999, reverse=True)
+    
+    if not filtered:
+        return "<p>No candidates met the Model/Score criteria.</p>"
+        
+    html_lines = ["<h3>⭐ Top Model Picks (High Confidence Shorts)</h3>"]
+    html_lines.append("<p><i>Criteria: Pred Return > 3.9% OR Score < -0.5 OR Sentiment < -0.4</i></p>")
+    html_lines.append("<table border='1' style='border-collapse: collapse; width: 100%; font-size: 14px; border: 2px solid #2980b9;'>")
+    
+    headers = ["Ticker", "Pred. Return", "Score", "Sentiment", "Reason (Snippet)"]
+    html_lines.append("<tr>")
+    for h in headers:
+        html_lines.append(f"<th style='padding: 8px; text-align: left; background-color: #aed6f1; color: #154360;'>{h}</th>")
+    html_lines.append("</tr>")
+    
+    for item in filtered:
+        pred_val = f"{item.get('modelReturnPrediction', 0)*100:.2f}%" if item.get('modelReturnPrediction') is not None else "N/A"
+        # Highlight high predictions
+        pred_style = "font-weight: bold; color: green;" if item.get('modelReturnPrediction', 0) > 0.039 else ""
+        
+        score_val = item.get('finalScore', '-')
+        sent_val = clean_value(item.get('sentiment'))
+        sent_str = f"{sent_val}" if sent_val is not None else "-"
+        reason = item.get('reason', '')[:100] + "..." if len(item.get('reason', '')) > 100 else item.get('reason', '')
+        
+        html_lines.append("<tr>")
+        html_lines.append(f"<td style='padding: 8px;'><b>{item['ticker']}</b></td>")
+        html_lines.append(f"<td style='padding: 8px; {pred_style}'>{pred_val}</td>")
+        html_lines.append(f"<td style='padding: 8px;'>{score_val}</td>")
+        html_lines.append(f"<td style='padding: 8px;'>{sent_str}</td>")
+        html_lines.append(f"<td style='padding: 8px; font-size: 0.9em; color: #555;'>{reason}</td>")
+        html_lines.append("</tr>")
+        
+    html_lines.append("</table><br><hr><br>")
+    return "\n".join(html_lines)
+
 
 def json_timing_to_html(timing_data, title, top_n=4, mode="rebound"):
     """Converts timing output JSON to an HTML table."""
@@ -170,6 +244,16 @@ def send_email(subject, html_body, recipient):
 def main():
     args = parse_args()
 
+    # --- 0. TOP MODEL PICKS (New) ---
+    model_picks_html = ""
+    if args.contrarian_report and os.path.exists(args.contrarian_report):
+        try:
+             with open(args.contrarian_report, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                model_picks_html = generate_model_picks_table(data)
+        except Exception as e:
+            model_picks_html = f"<p>Error generating model picks: {e}</p>"
+
     # --- 1. UPSIDE (Contrarian) Content ---
     upside_summary_html = "<p>No summary table found.</p>"
     if os.path.exists(args.summary_md):
@@ -211,6 +295,8 @@ def main():
     <body style='font-family: Arial, sans-serif;'>
         <h1 style='color: #2c3e50; text-align: center;'>Market Analysis Report ({today_str})</h1>
         <hr>
+        
+        {model_picks_html}
         
         <!-- SECTION 1: REBOUND OPPORTUNITIES -->
         <h2 style='color: #27ae60;'>🟢 Rebound Opportunities (Long)</h2>

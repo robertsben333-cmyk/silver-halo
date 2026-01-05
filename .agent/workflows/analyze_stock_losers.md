@@ -34,6 +34,7 @@ py "$baseDir/apps/stock_losers.py" --output "$outDir/stock_losers_clean.json" --
 **Goal:** Find reasons the drop is an *overreaction*.
 **Instructions:**
 You MUST read and follow the **[Contrarian Instructions](file:///c:/Users/XavierFriesen/.gemini/antigravity/playground/silver-halo/inputs/instructions/instructions.md)**.
+You MUST perform multiple searchers per sticker
 *   **Step 1:** Read the "Evidence Gathering" and "Evidence Metrics" sections of the instructions.
 *   **Step 2:** Perform the research as defined in the instructions (News, Regulatory, Analyst, Sentiment).
 *   **Step 3:** Generate the `raw_assessments.json` file. **CRITICAL:** You must populate the `metrics` object (PCR, EC, SD, NRI, etc.) exactly as defined in the instructions.
@@ -43,6 +44,8 @@ You MUST read and follow the **[Contrarian Instructions](file:///c:/Users/Xavier
 **Goal:** Find reasons the drop is *just the beginning*.
 **Instructions:**
 You MUST read and follow the **[Downside Instructions](file:///c:/Users/XavierFriesen/.gemini/antigravity/playground/silver-halo/inputs/instructions/downside_instructions.md)**.
+You MUST perform multiple searchers per sticker
+
 *   **Step 1:** Read the "Evidence gathering window" and "Determinant framework" sections.
 *   **Step 2:** Perform the research as defined in the instructions.
 *   **Step 3:** Generate the `downside_assessments.json` file. **CRITICAL:** You must populate the fields `driverCategory`, `downsideContinuationLikelihoodNextDay`, `shortCandidateScore`, etc., exactly as defined in the instructions.
@@ -74,5 +77,5 @@ py "$baseDir/apps/timing_agent.py" --input "$outDir/stock_analysis_report.json" 
 py "$baseDir/apps/downside_timing.py" --input "$outDir/downside_report.json" --output "$outDir/downside_timing_output.json"
 
 # 3. Email Reporting (Dual Model)
-py "$baseDir/apps/reporting_agent.py" --summary_md "$outDir/summary_table.md" --timing_json "$outDir/timing_output.json" --downside_report "$outDir/downside_report.json" --downside_timing "$outDir/downside_timing_output.json"
+py "$baseDir/apps/reporting_agent.py" --summary_md "$outDir/summary_table.md" --contrarian_report "$outDir/stock_analysis_report.json" --timing_json "$outDir/timing_output.json" --downside_report "$outDir/downside_report.json" --downside_timing "$outDir/downside_timing_output.json"
 ```

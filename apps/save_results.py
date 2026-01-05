@@ -32,6 +32,7 @@ def save_to_csv(csv_path, assessments, report):
     # Define Headers
     headers = [
         "date", "ticker", "timestamp", "oneDayReturnPct", "finalScore",
+        "modelReturnPrediction", # Added
         "nonFundamental", "news", "sentiment", "uncertainty", "confidence",
         "returnLikelihood", "evidenceCheckedCited", "reason",
         "metrics_EC", "metrics_PCR", "metrics_SD", "metrics_NRI",
@@ -55,6 +56,7 @@ def save_to_csv(csv_path, assessments, report):
             "timestamp": timestamp,
             "oneDayReturnPct": item.get('oneDayReturnPct'),
             "finalScore": item.get('finalScore'),
+            "modelReturnPrediction": item.get('modelReturnPrediction'), # Added
             "nonFundamental": item.get('nonFundamental'),
             "news": item.get('news'),
             "sentiment": sentiment_val,
@@ -107,6 +109,73 @@ def main():
     
     with open(args.report, 'r', encoding='utf-8') as f:
         report = json.load(f)
+
+    # --- Model Prediction Logic ---
+    ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "model_artifacts")
+    model_path = os.path.join(ARTIFACTS_DIR, "return_predictor.joblib")
+    features_path = os.path.join(ARTIFACTS_DIR, "model_features.json")
+    
+    if os.path.exists(model_path) and os.path.exists(features_path):
+        import joblib
+        try:
+            model = joblib.load(model_path)
+            with open(features_path, 'r') as f:
+                feature_names = json.load(f)
+            
+            print(f"Loaded prediction model from {model_path}")
+            
+            # Create a mapping for raw assessments to easily get features
+            assessments_map = {item['ticker']: item for item in assessments}
+            
+            for item in report:
+                ticker = item['ticker']
+                raw = assessments_map.get(ticker, {})
+                metrics = raw.get('metrics', {})
+                
+                # Extract features matching training logic
+                # Features: ['sentiment', 'metrics_CP', 'finalScore', 'returnLikelihood', 'metrics_SD', 'metrics_NRI']
+                # Must handle missing values exactly as training (coerce to numeric) -> Input to predict must be valid
+                
+                # Build feature vector
+                vector = []
+                valid = True
+                for feat in feature_names:
+                    val = None
+                    if feat == 'finalScore':
+                        val = item.get('finalScore')
+                    elif feat == 'sentiment':
+                        val = clean_value(item.get('sentiment'))
+                    elif feat == 'returnLikelihood':
+                        val = clean_value(item.get('returnLikelihood1to5d'))
+                    elif feat.startswith('metrics_'):
+                        short_name = feat.replace('metrics_', '')
+                        val = metrics.get(short_name)
+                    # Add simple fallback/clean logic
+                    try:
+                        fval = float(val) if val is not None else None
+                    except:
+                        fval = None
+                    
+                    if fval is None:
+                        valid = False
+                        break
+                    vector.append(fval)
+                
+                if valid:
+                    pred = model.predict([vector])[0]
+                    item['modelReturnPrediction'] = float(pred) # 0.05 format
+                else:
+                    item['modelReturnPrediction'] = None
+            
+            # Overwrite the report JSON with the enriched data (so reporting agent sees it)
+            with open(args.report, 'w', encoding='utf-8') as f:
+                json.dump(report, f, indent=4)
+            print(f"Updated {args.report} with model predictions.")
+                    
+        except Exception as e:
+            print(f"Error applying model prediction: {e}")
+    else:
+        print(f"Model artifacts not found at {ARTIFACTS_DIR}. Skipping prediction.")
 
     save_to_csv(args.csv, assessments, report)
     generate_table(report, args.output_md)
