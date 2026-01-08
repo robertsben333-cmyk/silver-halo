@@ -14,8 +14,6 @@ def parse_args():
     parser.add_argument("--summary_md", required=True, help="Path to summary_table.md (Contrarian)")
     parser.add_argument("--contrarian_report", required=False, help="Path to stock_analysis_report.json (for Model Picks)")
     parser.add_argument("--timing_json", required=True, help="Path to timing_output.json (Contrarian)")
-    parser.add_argument("--downside_report", required=False, help="Path to downside_report.json")
-    parser.add_argument("--downside_timing", required=False, help="Path to downside_timing_output.json")
     parser.add_argument("--recipient", default="xavierjjc@outlook.com", help="Email recipient")
     return parser.parse_args()
 
@@ -62,158 +60,64 @@ def md_table_to_html(md_content):
     html_lines.append("</table>")
     return "\n".join(html_lines)
 
-def generate_model_picks_table(report_data):
-    """Generates HTML table for Top Model Picks based on user criteria."""
+def generate_model_picks_table(report_data, mode='long'):
+    """Generates HTML table for Top Model Picks based on criteria."""
     if not report_data:
         return ""
     
-    # Filter candidates
-    # Criteria:
-    # a) Predicted Return > 3.9% (0.039)
-    # b) Final Score < -0.5
-    # c) Sentiment < -0.4 (assuming sentiment numeric)
+    # Determine key
+    pred_key = 'lm_fit_long' if mode == 'long' else 'lm_fit_short'
+    title = "🟢 Top Long Picks" if mode == 'long' else "🔴 Top Short Picks"
     
-    filtered = []
-    for item in report_data:
-        pred_return = item.get('modelReturnPrediction')
-        score = item.get('finalScore')
-        sentiment = clean_value(item.get('sentiment'))
-        
-        # Criteria Check
-        c1 = pred_return is not None and pred_return > 0.039
-        c2 = score is not None and score < -0.5
-        c3 = sentiment is not None and sentiment < -0.4
-        
-        if c1 or c2 or c3:
-            filtered.append(item)
-            
-    # Sort by Prediction (Descending), nulls last
-    filtered.sort(key=lambda x: x.get('modelReturnPrediction') if x.get('modelReturnPrediction') is not None else -999, reverse=True)
+    # Filter candidates (Optional: filter > 0 return?)
+    # For now, show top entries regardless of threshold? 
+    # Or stick to > 4.5%? User didn't specify threshold, just "top model picks".
+    # Let's show top 5 for each.
     
-    if not filtered:
-        return "<p>No candidates met the Model/Score criteria.</p>"
+    # Sort
+    filtered = [x for x in report_data if x.get(pred_key) is not None]
+    filtered.sort(key=lambda x: x.get(pred_key, -999), reverse=True)
+    
+    display_list = filtered[:5]
+    
+    if not display_list:
+        return f"<h3>{title}</h3><p>No model data available.</p>"
         
-    html_lines = ["<h3>⭐ Top Model Picks (High Confidence Shorts)</h3>"]
-    html_lines.append("<p><i>Criteria: Pred Return > 3.9% OR Score < -0.5 OR Sentiment < -0.4</i></p>")
+    html_lines = [f"<h3>{title}</h3>"]
     html_lines.append("<table border='1' style='border-collapse: collapse; width: 100%; font-size: 14px; border: 2px solid #2980b9;'>")
     
-    headers = ["Ticker", "Pred. Return", "Score", "Sentiment", "Reason (Snippet)"]
+    headers = ["Ticker", "Pred. Return", "Score", "Sentiment", "Reason"]
     html_lines.append("<tr>")
     for h in headers:
-        html_lines.append(f"<th style='padding: 8px; text-align: left; background-color: #aed6f1; color: #154360;'>{h}</th>")
+        bg_color = "#d4efdf" if mode == 'long' else "#fadbd8" # Greenish vs Reddish
+        html_lines.append(f"<th style='padding: 8px; text-align: left; background-color: {bg_color}; color: #333;'>{h}</th>")
     html_lines.append("</tr>")
     
-    for item in filtered:
-        pred_val = f"{item.get('modelReturnPrediction', 0)*100:.2f}%" if item.get('modelReturnPrediction') is not None else "N/A"
-        # Highlight high predictions
-        pred_style = "font-weight: bold; color: green;" if item.get('modelReturnPrediction', 0) > 0.039 else ""
+    for item in display_list:
+        pred_val = item.get(pred_key, 0)
+        pred_fmt = f"{pred_val*100:.2f}%"
+        
+        # Color logic
+        pred_style = "font-weight: bold;"
+        if pred_val > 0: pred_style += " color: green;"
+        elif pred_val < 0: pred_style += " color: red;"
         
         score_val = item.get('finalScore', '-')
-        sent_val = clean_value(item.get('sentiment'))
-        sent_str = f"{sent_val}" if sent_val is not None else "-"
-        reason = item.get('reason', '')[:100] + "..." if len(item.get('reason', '')) > 100 else item.get('reason', '')
+        sent_val = item.get('sentiment', '-')
+        reason = item.get('reason', '')
         
         html_lines.append("<tr>")
         html_lines.append(f"<td style='padding: 8px;'><b>{item['ticker']}</b></td>")
-        html_lines.append(f"<td style='padding: 8px; {pred_style}'>{pred_val}</td>")
+        html_lines.append(f"<td style='padding: 8px; {pred_style}'>{pred_fmt}</td>")
         html_lines.append(f"<td style='padding: 8px;'>{score_val}</td>")
-        html_lines.append(f"<td style='padding: 8px;'>{sent_str}</td>")
+        html_lines.append(f"<td style='padding: 8px;'>{sent_val}</td>")
         html_lines.append(f"<td style='padding: 8px; font-size: 0.9em; color: #555;'>{reason}</td>")
         html_lines.append("</tr>")
         
-    html_lines.append("</table><br><hr><br>")
+    html_lines.append("</table><br>")
     return "\n".join(html_lines)
 
 
-def json_timing_to_html(timing_data, title, top_n=4, mode="rebound"):
-    """Converts timing output JSON to an HTML table."""
-    if not isinstance(timing_data, list) or not timing_data:
-        return f"<p>No {title} timing data available.</p>"
-
-    display_data = timing_data[:top_n]
-
-    html_lines = [f"<h3>{title} (Top {len(display_data)})</h3>"]
-    html_lines.append("<table border='1' style='border-collapse: collapse; width: 100%; font-size: 14px;'>")
-    
-    # Headers
-    headers = ["Ticker", "Action", "Entry Price", "Exit Target", "Reasoning"]
-    html_lines.append("<tr>")
-    for h in headers:
-        html_lines.append(f"<th style='padding: 8px; text-align: left; background-color: #e0e0e0;'>{h}</th>")
-    html_lines.append("</tr>")
-
-    # Rows
-    for item in display_data:
-        html_lines.append("<tr>")
-        
-        ticker = item.get('ticker', 'N/A')
-        action = item.get('timing', item.get('action', 'N/A'))
-        
-        # Extract Price Levels based on mode
-        entry_price = "—"
-        exit_target = item.get('exit_target')
-        
-        if mode == "rebound":
-            # Rebound: max_entry_price
-            val = item.get('max_entry_price')
-            if val is not None:
-                entry_price = f"< {val:.2f}"
-            else:
-                 # If no numeric price, check if action implies simply 'Avoid'
-                 pass
-        else:
-            # Downside: min_short_price
-            val = item.get('min_short_price')
-            if val is not None:
-                entry_price = f"> {val:.2f}"
-
-        # Format Exit
-        exit_str = f"{exit_target:.2f}" if exit_target is not None else "—"
-
-        reason = item.get('reasoning', 'N/A')
-
-        row_data = [ticker, action, entry_price, exit_str, reason]
-        
-        for cell in row_data:
-            html_lines.append(f"<td style='padding: 8px; text-align: left;'>{cell}</td>")
-        html_lines.append("</tr>")
-        
-    html_lines.append("</table>")
-    return "\n".join(html_lines)
-
-def json_report_to_html(report_data, title, top_n=5):
-    """Converts main report JSON to HTML table (for Downside since it has no MD summary)."""
-    if not report_data:
-        return ""
-        
-    display_data = report_data[:top_n]
-    
-    html_lines = [f"<h3>{title} (Top {len(display_data)})</h3>"]
-    html_lines.append("<table border='1' style='border-collapse: collapse; width: 100%; font-size: 14px;'>")
-    
-    # Headers
-    headers = ["Rank", "Ticker", "Score", "Probability", "Category"]
-    html_lines.append("<tr>")
-    for h in headers:
-        html_lines.append(f"<th style='padding: 8px; text-align: left; background-color: #d1f2eb;'>{h}</th>")
-    html_lines.append("</tr>")
-
-    for item in display_data:
-        html_lines.append("<tr>")
-        # Adapting to Downside keys
-        row_data = [
-            str(item.get('rank', '-')),
-            item.get('ticker', 'N/A'),
-            str(item.get('shortCandidateScore', 'N/A')),
-            item.get('downsideContinuationLikelihoodNextDay', 'N/A'),
-            item.get('driverCategory', 'N/A')
-        ]
-        for cell in row_data:
-            html_lines.append(f"<td style='padding: 8px; text-align: left;'>{cell}</td>")
-        html_lines.append("</tr>")
-    
-    html_lines.append("</table>")
-    return "\n".join(html_lines)
 
 def send_email(subject, html_body, recipient):
     smtp_server = os.environ.get("SMTP_SERVER", "smtp.office365.com")
@@ -243,50 +147,31 @@ def send_email(subject, html_body, recipient):
 
 def main():
     args = parse_args()
-
-    # --- 0. TOP MODEL PICKS (New) ---
-    model_picks_html = ""
-    if args.contrarian_report and os.path.exists(args.contrarian_report):
+    
+    # Look for enriched report
+    # Typically in same dir as contrarian_report
+    base_dir = os.path.dirname(args.summary_md)
+    enriched_path = os.path.join(base_dir, "enriched_report.json")
+    
+    report_data = []
+    
+    if os.path.exists(enriched_path):
         try:
+             with open(enriched_path, 'r', encoding='utf-8') as f:
+                report_data = json.load(f)
+        except Exception as e:
+            print(f"Error loading enriched report: {e}")
+    elif args.contrarian_report and os.path.exists(args.contrarian_report):
+         # Fallback to old report (might lack lm_fit keys)
+         try:
              with open(args.contrarian_report, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                model_picks_html = generate_model_picks_table(data)
-        except Exception as e:
-            model_picks_html = f"<p>Error generating model picks: {e}</p>"
-
-    # --- 1. UPSIDE (Contrarian) Content ---
-    upside_summary_html = "<p>No summary table found.</p>"
-    if os.path.exists(args.summary_md):
-        with open(args.summary_md, 'r', encoding='utf-8') as f:
-            upside_summary_html = md_table_to_html(f.read())
+                report_data = json.load(f)
+         except Exception as e:
+            print(f"Error loading contrarian report: {e}")
             
-    upside_timing_html = ""
-    if os.path.exists(args.timing_json):
-        try:
-            with open(args.timing_json, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                upside_timing_html = json_timing_to_html(data, "Rebound Timing Advice", top_n=4, mode="rebound")
-        except Exception as e:
-            upside_timing_html = f"<p>Error: {e}</p>"
-
-    # --- 2. DOWNSIDE (Short) Content ---
-    downside_report_html = ""
-    if args.downside_report and os.path.exists(args.downside_report):
-        try:
-            with open(args.downside_report, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                downside_report_html = json_report_to_html(data, "Downside Candidates", top_n=5)
-        except Exception as e:
-            downside_report_html = f"<p>Error: {e}</p>"
-
-    downside_timing_html = ""
-    if args.downside_timing and os.path.exists(args.downside_timing):
-        try:
-            with open(args.downside_timing, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                downside_timing_html = json_timing_to_html(data, "Short Timing Advice", top_n=4, mode="downside")
-        except Exception as e:
-            downside_timing_html = f"<p>Error: {e}</p>"
+    # Generate Tables
+    long_table = generate_model_picks_table(report_data, mode='long')
+    short_table = generate_model_picks_table(report_data, mode='short')
 
     # --- Compose Body ---
     today_str = datetime.now().strftime("%Y-%m-%d")
@@ -296,25 +181,11 @@ def main():
         <h1 style='color: #2c3e50; text-align: center;'>Market Analysis Report ({today_str})</h1>
         <hr>
         
-        {model_picks_html}
+        {long_table}
+        <hr>
+        {short_table}
         
-        <!-- SECTION 1: REBOUND OPPORTUNITIES -->
-        <h2 style='color: #27ae60;'>🟢 Rebound Opportunities (Long)</h2>
-        <p><i>Top contrarian plays based on Rebound Likelihood Score (RLS).</i></p>
-        
-        {upside_summary_html}
-        {upside_timing_html}
-        
-        <br><hr><br>
-        
-        <!-- SECTION 2: SHORT OPPORTUNITIES -->
-        <h2 style='color: #c0392b;'>🔴 Downside Opportunities (Short)</h2>
-        <p><i>Candidates for persistent decline avoiding dead-cat bounces.</i></p>
-        
-        {downside_report_html}
-        {downside_timing_html}
-
-        <br><hr>
+        <br>
         <p style='color: #7f8c8d; font-size: 0.8em; text-align: center;'>Generated by Silver Halo Agent</p>
     </body>
     </html>

@@ -45,11 +45,6 @@ Execute the deterministic scoring scripts for both models.
 # Branch A: Contrarian Scoring
 py "$baseDir/apps/rebound_scoring.py" --input "$outDir/raw_assessments.json" --output "$outDir/stock_analysis_report.json"
 py "$baseDir/apps/save_results.py" --assessments "$outDir/raw_assessments.json" --report "$outDir/stock_analysis_report.json" --csv "$baseDir/outputs/analysis_history.csv" --output_md "$outDir/summary_table.md"
-
-# Branch B: Downside Scoring
-py "$baseDir/apps/downside_scoring.py" --input "$outDir/downside_assessments.json" --output "$outDir/downside_report.json"
-# Downside Persistence
-py "$baseDir/apps/downside_persistence.py" --report "$outDir/downside_report.json" --csv "$baseDir/outputs/downside_history.csv"
 ```
 
 ## 4. GenAI Timing & Reporting
@@ -62,9 +57,6 @@ Use the **Gemini-powered** timing agents for enhanced reasoning.
 # 1. Timing Analysis (Branch A: Contrarian - GenAI)
 py "$baseDir/apps/timing_agent_genai.py" --input "$outDir/stock_analysis_report.json" --output "$outDir/timing_output.json"
 
-# 2. Timing Analysis (Branch B: Downside - GenAI)
-py "$baseDir/apps/downside_timing_genai.py" --input "$outDir/downside_report.json" --output "$outDir/downside_timing_output.json"
-
-# 3. Email Reporting (Dual Model)
-py "$baseDir/apps/reporting_agent.py" --summary_md "$outDir/summary_table.md" --timing_json "$outDir/timing_output.json" --downside_report "$outDir/downside_report.json" --downside_timing "$outDir/downside_timing_output.json"
+# 3. Email Reporting (Contrarian Model)
+py "$baseDir/apps/reporting_agent.py" --summary_md "$outDir/summary_table.md" --timing_json "$outDir/timing_output.json"
 ```

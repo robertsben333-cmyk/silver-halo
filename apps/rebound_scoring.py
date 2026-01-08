@@ -3,7 +3,12 @@ import argparse
 import math
 import statistics
 import sys
-from datetime import datetime
+import os
+import requests
+from datetime import datetime, timedelta
+
+# Import utils
+from model_utils import load_coefficients, fetch_historic_volume, calculate_model_prediction
 
 # --- Constants & Config ---
 RLS_PARAMS = {'a': 2.10, 'b': 1.35, 'c': 0.90, 'd': -0.20, 'e': 0.05}
@@ -79,10 +84,18 @@ def compute_sent(metrics, sent_pro, sent_com):
 
 def main():
     parser = argparse.ArgumentParser(description="Calculate Rebound Scores")
+
     parser.add_argument("--input", required=True, help="Path to raw_assessments.json")
     parser.add_argument("--output", required=True, help="Path to output stock_analysis_report.json")
     parser.add_argument("--vix", type=float, default=15.0, help="Current VIX value")
+    parser.add_argument("--strategy", choices=['long', 'short'], default='long', help="Strategy model to use")
     args = parser.parse_args()
+    
+    # Load Coefficients
+    coef_data = load_coefficients(args.strategy)
+    if not coef_data:
+        print("Failed to load coefficients. Exiting.")
+        sys.exit(1)
 
     try:
         with open(args.input, 'r') as f:
@@ -90,6 +103,8 @@ def main():
     except Exception as e:
         print(f"Error loading input: {e}")
         sys.exit(1)
+        
+    api_key = os.environ.get("POLYGON_API_KEY")
 
     processed_tickers = []
     
@@ -135,6 +150,8 @@ def main():
         weights['CRWD'] -= 0.03
         # Renormalize? Sum is still 1.0 (0.06 - 0.03 - 0.03 = 0).
     
+    print(f"Processing {len(data)} items with {args.strategy} strategy...")
+
     for idx, item in enumerate(data):
         # Assemble weighted sum
         score = 0
@@ -220,6 +237,16 @@ def main():
         if item.get('metrics', {}).get('SD', 0) < 0.3: uncertainty = "High" # Heuristic? Or explicit agent input?
         # Use agent input 'uncertainty' unless overridden.
         
+        confidence = item.get('confidence', 'Medium')
+
+        # Fetch Volume
+        ticker = item['ticker']
+        vol_30d = 0
+        if api_key:
+            # Rebound scoring is usually run 'now', so use today's date
+            today_str = datetime.now().strftime("%Y-%m-%d")
+            vol_30d = fetch_historic_volume(ticker, today_str, api_key)
+        
         # Output Object
         final_obj = {
             "rank": 0, # Placeholder
@@ -229,7 +256,7 @@ def main():
             "sector": item.get('sector', '—'),
             "lastUsd": item.get('lastUsd', 0.0),
             "oneDayReturnPct": item.get('oneDayReturnPct', 0.0),
-            "dollarVol": "—", # Passed through?
+            "dollarVol": vol_30d, # Passed through?
             "nonFundamental": item.get('nonFundamental', 'No'),
             "news": round(item['calc_NEWS'], 2),
             "sentiment": f"{item['calc_SENT']:.2f}", # Label added by UI? Protocol says: "-0.32 (Bearish)"
@@ -238,8 +265,7 @@ def main():
                            # We will use 0.0 or pass-through if agent provides Stdev of its conceptual ensemble.
             "uncertainty": uncertainty,
             "returnLikelihood1to5d": rls_str,
-            "confidence": item.get('confidence', 'Medium'),
-            "reason": item.get('reason', ''),
+            "confidence": confidence,
             "reason": item.get('reason', ''),
             "evidenceCheckedCited": item.get('evidenceCheckedCited', ''),
             "metrics": item.get('metrics', {}) # Pass through for Timing Agent
@@ -252,7 +278,34 @@ def main():
         else: s_lbl = "Neutral"
         final_obj['sentiment'] = f"{final_obj['sentiment']} ({s_lbl})"
         
+        # Calculate Model Prediction
+        # Need oneDayReturnPct in input if used
+        # Note: 'oneDayReturnPct' is in the coefficients file, so we must add it to the model inputs.
+        # But 'oneDayReturnPct' is a property of the item, not in metrics dict.
+        # We'll pass it via kwargs or update metrics? 
+        # Safer to manually inject it into the coef matching logic:
+        # In calculate_model_prediction, we see: pred += metrics.get('oneDayReturnPct', 0) ...
+        # So let's add it to metrics temporarily or handle it explicitly.
+        
+        model_input_metrics = item.get('metrics', {}).copy()
+        model_input_metrics['oneDayReturnPct'] = item.get('oneDayReturnPct', 0.0)
+        
+        pred_return = calculate_model_prediction(
+            model_input_metrics, 
+            frs, 
+            confidence,
+            uncertainty,
+            vol_30d,
+            coef_data
+        )
+        final_obj['modelReturnPrediction'] = float(pred_return)
+        
         final_results.append(final_obj)
+
+
+
+# Update main loop to include prediction
+# This replaces the loop end to insert the function call
 
     # Ranking
     final_results.sort(key=lambda x: x['finalScore'], reverse=True)

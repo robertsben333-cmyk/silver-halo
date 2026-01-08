@@ -1,0 +1,23 @@
+{
+    "intercept": -0.09433317531384791,
+    "coefficients": {
+        "oneDayReturnPct": 0.000964318171304311,
+        "finalScore": -0.0038512052020105107,
+        "metrics_PCR": 0.1554665968415602,
+        "metrics_EC": 0.5179746212736952,
+        "metrics_SD": -0.5689845687387851,
+        "metrics_NRI": -0.076933735265438,
+        "metrics_HDM": -0.04971892506406372,
+        "metrics_CONTR": 0.245205852274541,
+        "metrics_CP": 0.060823292949107044,
+        "metrics_RD": -0.10524924229337174,
+        "metrics_FRESH_NEG": 0.08438243836129927,
+        "AvgVolume_30D": 1.5950856182402977e-10,
+        "confidence_High": -0.02743602714995446,
+        "confidence_Low": 0.03010511611484372,
+        "confidence_Medium": -0.0026690889648883064,
+        "uncertainty_High": -0.009947214889537436,
+        "uncertainty_Low": 0.03022463629977265,
+        "uncertainty_Medium": -0.020277421410234423
+    }
+}

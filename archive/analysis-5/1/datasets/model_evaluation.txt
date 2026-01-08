@@ -1,0 +1,11 @@
+Model Evaluation Results
+========================
+
+Model: Linear Regression
+Correlation (CV Predictions vs Actual): 0.1363
+R-Squared (CV): -0.1180
+------------------------------
+Model: Random Forest (Reg)
+Correlation (CV Predictions vs Actual): 0.0445
+R-Squared (CV): -0.1738
+------------------------------

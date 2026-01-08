@@ -39,16 +39,7 @@ You MUST perform multiple searchers per sticker
 *   **Step 2:** Perform the research as defined in the instructions (News, Regulatory, Analyst, Sentiment).
 *   **Step 3:** Generate the `raw_assessments.json` file. **CRITICAL:** You must populate the `metrics` object (PCR, EC, SD, NRI, etc.) exactly as defined in the instructions.
 
-### Branch B: Downside Continuation Scan (The Short Seller)
-**Role:** Forensic Accountant / Short Seller (Bear Bias).
-**Goal:** Find reasons the drop is *just the beginning*.
-**Instructions:**
-You MUST read and follow the **[Downside Instructions](file:///c:/Users/XavierFriesen/.gemini/antigravity/playground/silver-halo/inputs/instructions/downside_instructions.md)**.
-You MUST perform multiple searchers per sticker
 
-*   **Step 1:** Read the "Evidence gathering window" and "Determinant framework" sections.
-*   **Step 2:** Perform the research as defined in the instructions.
-*   **Step 3:** Generate the `downside_assessments.json` file. **CRITICAL:** You must populate the fields `driverCategory`, `downsideContinuationLikelihoodNextDay`, `shortCandidateScore`, etc., exactly as defined in the instructions.
 
 ## 4. Quantitative Scoring & Persistence
 
@@ -61,11 +52,6 @@ Execute the scoring scripts for both models and save results.
 py "$baseDir/apps/rebound_scoring.py" --input "$outDir/raw_assessments.json" --output "$outDir/stock_analysis_report.json"
 py "$baseDir/apps/save_results.py" --assessments "$outDir/raw_assessments.json" --report "$outDir/stock_analysis_report.json" --csv "$baseDir/outputs/analysis_history.csv" --output_md "$outDir/summary_table.md"
 
-# Branch B: Downside Scoring
-py "$baseDir/apps/downside_scoring.py" --input "$outDir/downside_assessments.json" --output "$outDir/downside_report.json"
-# Downside Persistence
-py "$baseDir/apps/downside_persistence.py" --report "$outDir/downside_report.json" --csv "$baseDir/outputs/downside_history.csv"
-
 # -------------------------------------------------------------------------------------
 # PHASE 4: Timing & Reporting (Combined)
 # -------------------------------------------------------------------------------------
@@ -73,9 +59,6 @@ py "$baseDir/apps/downside_persistence.py" --report "$outDir/downside_report.jso
 # 1. Timing Analysis (Branch A: Contrarian)
 py "$baseDir/apps/timing_agent.py" --input "$outDir/stock_analysis_report.json" --output "$outDir/timing_output.json"
 
-# 2. Timing Analysis (Branch B: Downside)
-py "$baseDir/apps/downside_timing.py" --input "$outDir/downside_report.json" --output "$outDir/downside_timing_output.json"
-
-# 3. Email Reporting (Dual Model)
-py "$baseDir/apps/reporting_agent.py" --summary_md "$outDir/summary_table.md" --contrarian_report "$outDir/stock_analysis_report.json" --timing_json "$outDir/timing_output.json" --downside_report "$outDir/downside_report.json" --downside_timing "$outDir/downside_timing_output.json"
+# 3. Email Reporting (Contrarian Model)
+py "$baseDir/apps/reporting_agent.py" --summary_md "$outDir/summary_table.md" --contrarian_report "$outDir/stock_analysis_report.json" --timing_json "$outDir/timing_output.json"
 ```

@@ -17,7 +17,7 @@ if not API_KEY:
 INPUT_DIR = "outputs"
 OUTPUT_DIR = "analysis-5/1"
 ANALYSIS_FILE = "analysis_history.csv"
-DOWNSIDE_FILE = "downside_history.csv"
+ANALYSIS_FILE = "analysis_history.csv"
 
 def get_polygon_price(ticker, timestamp_ms):
     """Fetch 1-minute bar for a specific timestamp."""
@@ -189,24 +189,19 @@ def main():
         
     analysis_columns = [
         "date", "ticker", "timestamp", "oneDayReturnPct", "finalScore",
+        "modelReturnPrediction", 
         "nonFundamental", "news", "sentiment", "uncertainty", "confidence",
         "returnLikelihood", "evidenceCheckedCited", "reason",
         "metrics_EC", "metrics_PCR", "metrics_SD", "metrics_NRI",
         "metrics_HDM", "metrics_CONTR", "metrics_FRESH_NEG",
-        "metrics_CP", "metrics_RD"
+        "metrics_CP", "metrics_RD",
+        "lm_fit_long", "lm_fit_short", "avg_volume_30d" # New columns at end
     ]
     # Process Analysis History (Source of Truth for Prices)
     process_file(ANALYSIS_FILE, analysis_columns)
     
     # Load Cache after processing analysis file
     price_cache = load_price_cache()
-    
-    downside_columns = [
-        "run_id", "timestamp", "ticker", "dcl_prob", "scs_score", 
-        "rank", "driver_category", "reason"
-    ]
-    # Process Downside History using Cache
-    process_file(DOWNSIDE_FILE, downside_columns, price_cache=price_cache)
 
 if __name__ == "__main__":
     main()

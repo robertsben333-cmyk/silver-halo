@@ -95,7 +95,25 @@ def fetch_losers(limit=10, min_price=15.0, date_str=None):
 
     # 3. Process Losers
     print("--- Processing data... ---")
-    for item in raw_data:
+    
+    count_total = len(raw_data)
+    count_common = 0
+    count_price_filter = 0
+    count_pct_filter = 0
+    count_valid = 0
+    
+    count_has_lastTrade = 0
+    count_day_active = 0
+    count_min_active = 0
+    count_change_nonzero = 0
+    
+    for i, item in enumerate(raw_data):
+        # Stats
+        if "lastTrade" in item: count_has_lastTrade += 1
+        if item.get("day", {}).get("c", 0) > 0: count_day_active += 1
+        if item.get("min", {}).get("c", 0) > 0: count_min_active += 1
+        if item.get("todaysChangePerc", 0) != 0: count_change_nonzero += 1
+        
         # Normalize keys (Snapshot vs Grouped)
         # Grouped: T, c, o, h, l, v, vw
         # Snapshot: ticker, day.c, day.o ...
@@ -103,12 +121,15 @@ def fetch_losers(limit=10, min_price=15.0, date_str=None):
         ticker = item.get("ticker") or item.get("T")
         if not ticker or ticker not in common_tickers:
             continue
+        
+        count_common += 1
             
         if date_str:
             # Historical Grouped
             close_price = item.get("c")
             open_price = item.get("o")
             if not close_price or not open_price or close_price < min_price:
+                if close_price and close_price < min_price: count_price_filter += 1
                 continue
             # Calculate change using Open vs Close (or if Grouped has prevClose? No it doesn't usually)
             # Actually Grouped Daily is OHLC. Change from Yesterday's Close is not provided directly.
@@ -119,18 +140,39 @@ def fetch_losers(limit=10, min_price=15.0, date_str=None):
             current_price = close_price
         else:
             # Snapshot
-            current_price = item.get("lastTrade", {}).get("p") or item.get("day", {}).get("c")
+            # DEBUG: Use today's change if available directly?
+            # current_price = item.get("lastTrade", {}).get("p") or item.get("day", {}).get("c")
+            # If lastTrade is missing, try prevDay close just to pass? No, that's not a loser.
+            
+            # Use min.c (pre-market) if day.c is 0?
+            c = item.get("day", {}).get("c", 0)
+            if c == 0:
+                 c = item.get("min", {}).get("c", 0)
+            if c == 0:
+                 # Last resort: lastTrade
+                 c = item.get("lastTrade", {}).get("p", 0)
+                 
+            current_price = c
+            
             if not current_price or current_price < min_price:
+                if current_price and current_price < min_price: count_price_filter += 1
                 continue
             
             # Simple snapshot logic
-            prev = item.get("prevDay", {}).get("c")
-            if not prev: continue
-            change_pct = ((current_price - prev) / prev) * 100
+            # Prefer 'todaysChangePerc' if available
+            change_pct_api = item.get("todaysChangePerc")
+            if change_pct_api is not None and change_pct_api != 0:
+                 change_pct = change_pct_api
+            else:
+                prev = item.get("prevDay", {}).get("c")
+                if not prev: continue
+                change_pct = ((current_price - prev) / prev) * 100
 
         if change_pct >= -4: # Strict -4% cutoff
+            count_pct_filter += 1
             continue
             
+        count_valid += 1
         meta = ticker_metadata.get(ticker, {})
         calculated_losers.append({
             "ticker": ticker,
@@ -140,6 +182,17 @@ def fetch_losers(limit=10, min_price=15.0, date_str=None):
             "changePct": round(change_pct, 2),
             "yahooLink": f"https://finance.yahoo.com/quote/{ticker}",
         })
+        
+    print(f"DEBUG STATS:")
+    print(f"  Total Raw Items: {count_total}")
+    print(f"  Common Tickers Matched: {count_common}")
+    print(f"  Items with lastTrade: {count_has_lastTrade}")
+    print(f"  Items with day.c > 0: {count_day_active}")
+    print(f"  Items with min.c > 0: {count_min_active}")
+    print(f"  Items with Change != 0: {count_change_nonzero}")
+    print(f"  Rejected by Min Price (< {min_price}): {count_price_filter}")
+    print(f"  Rejected by Pct (>= -4%): {count_pct_filter}")
+    print(f"  Valid Candidates: {count_valid}")
 
     sorted_losers = sorted(calculated_losers, key=lambda x: x["changePct"])
     return sorted_losers[:limit]

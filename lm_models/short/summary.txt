@@ -1,0 +1,41 @@
+Target: Target_Short
+R2 Score: 0.2059
+MSE: 0.005826
+
+Intercept: -0.018151
+
+Coefficients:
+               Feature   Coefficient       AbsCoef
+4           metrics_SD  2.825877e-01  2.825877e-01
+3           metrics_EC -1.700661e-01  1.700661e-01
+2          metrics_PCR -1.680254e-01  1.680254e-01
+7        metrics_CONTR -1.047428e-01  1.047428e-01
+6          metrics_HDM  1.021964e-01  1.021964e-01
+9           metrics_RD  5.657713e-02  5.657713e-02
+10   metrics_FRESH_NEG -5.532574e-02  5.532574e-02
+5          metrics_NRI  5.505012e-02  5.505012e-02
+1           finalScore -3.900898e-02  3.900898e-02
+8           metrics_CP -3.708096e-02  3.708096e-02
+15    uncertainty_High  1.290548e-02  1.290548e-02
+12     confidence_High -9.347681e-03  9.347681e-03
+17  uncertainty_Medium -7.812272e-03  7.812272e-03
+13      confidence_Low  5.989799e-03  5.989799e-03
+16     uncertainty_Low -5.093210e-03  5.093210e-03
+14   confidence_Medium  3.357882e-03  3.357882e-03
+0      oneDayReturnPct -1.613751e-03  1.613751e-03
+11       AvgVolume_30D  2.911233e-11  2.911233e-11
+
+--- Profitability Analysis ---
+Threshold  | Trades | Mean Return  | Std Dev    | Win Rate
+-----------------------------------------------------------------
+>0%        | 47     | 1.07%        | 6.72%      | 36%     
+>1%        | 33     | 2.18%        | 7.44%      | 42%     
+>2%        | 28     | 2.49%        | 7.94%      | 43%     
+>3%        | 21     | 1.80%        | 7.73%      | 38%     
+>4%        | 13     | 1.66%        | 9.42%      | 23%     
+>5%        | 8      | 5.09%        | 10.82%     | 38%     
+>6%        | 4      | 6.41%        | 10.97%     | 50%     
+>8%        | 3      | 9.88%        | 10.41%     | 67%     
+>10%       | 2      | 6.11%        | 11.46%     | 50%     
+>12%       | 2      | 6.11%        | 11.46%     | 50%     
+>15%       | 0      | 0.00%        | 0.00%      | 0%      

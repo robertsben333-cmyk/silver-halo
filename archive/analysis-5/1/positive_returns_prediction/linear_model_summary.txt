@@ -1,0 +1,25 @@
+R2 Score: 0.3495
+MSE: 0.003640
+
+Intercept: -0.072210
+
+Coefficients:
+                Feature  Coefficient   AbsCoef
+2           metrics_PCR     0.152439  0.152439
+5           metrics_NRI    -0.121885  0.121885
+8            metrics_CP     0.096438  0.096438
+6           metrics_HDM     0.071308  0.071308
+3            metrics_EC    -0.071043  0.071043
+9            metrics_RD    -0.057808  0.057808
+10    metrics_FRESH_NEG     0.055139  0.055139
+1            finalScore     0.050301  0.050301
+14  confidence_Very Low     0.036376  0.036376
+4            metrics_SD    -0.035691  0.035691
+7         metrics_CONTR    -0.033341  0.033341
+11      confidence_High    -0.032534  0.032534
+13    confidence_Medium    -0.024972  0.024972
+12       confidence_Low     0.021130  0.021130
+17   uncertainty_Medium    -0.014813  0.014813
+15     uncertainty_High     0.010546  0.010546
+16      uncertainty_Low     0.004267  0.004267
+0       oneDayReturnPct    -0.003981  0.003981

@@ -1,0 +1,3 @@
+Subset,TotalTrades,PositiveTrades,StoppedWinners,PctStoppedWinners,AvgPotentialReturn,AvgRealizedReturn
+Baseline (Score < 0),45,24,3,12.5,7.735061914412901,6.79298978973222
+Model High Conviction (Pred > 4.0%),25,15,2,13.333333333333334,10.101625003928422,8.972013357492848

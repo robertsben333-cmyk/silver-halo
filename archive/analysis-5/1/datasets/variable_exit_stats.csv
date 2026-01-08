@@ -1,0 +1,449 @@
+Tier,Minutes,Return,ReturnPct,Hours
+Moderate Confidence (0% < Pred < 3.5%),30,0.041912632821723694,4.191263282172369,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.04,-4.0,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.008864805473705125,0.8864805473705125,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.015755329008341215,-1.5755329008341215,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.049865229110512145,4.986522911051215,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.008100558659217855,0.8100558659217855,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.008559732043170839,-0.8559732043170839,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.030718140307181337,3.0718140307181336,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.04,-4.0,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.04434480953004324,4.434480953004324,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.008100558659217855,0.8100558659217855,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.00725115359261697,0.725115359261697,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.0010188487009678846,-0.10188487009678845,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.026523454625164422,2.6523454625164424,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.01938318401102688,-1.938318401102688,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.04254787234042558,4.254787234042558,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.046579330422125226,4.657933042212522,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.009911894273127738,0.9911894273127738,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.007584597432905495,0.7584597432905494,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.00339414509970294,-0.339414509970294,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.009532595325953328,0.9532595325953328,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.04,-4.0,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.07688351761378251,7.688351761378251,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.07010459299681669,7.010459299681669,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.01854539641943728,-1.854539641943728,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.03450000000000003,3.450000000000003,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.015324675324675413,-1.5324675324675412,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.008512714851163006,-0.8512714851163006,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.028325844891580444,-2.8325844891580445,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.04,-4.0,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,0.008174066451043772,0.8174066451043772,0.5
+Moderate Confidence (0% < Pred < 3.5%),30,-0.04,-4.0,0.5
+Moderate Confidence (0% < Pred < 3.5%),60,0.012396694214875999,1.2396694214875998,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.04,-4.0,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.01171153173850072,1.171153173850072,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.007993512511584939,-0.7993512511584939,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.07311320754716975,7.311320754716975,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.017877094972067055,1.7877094972067056,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.019538518794194215,-1.9538518794194215,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.01452885014528856,1.452885014528856,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.04,-4.0,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.09845005890823408,9.845005890823408,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.017877094972067055,1.7877094972067056,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.0006591957811469866,0.06591957811469866,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.0010188487009678846,-0.10188487009678845,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.055677334502411205,5.56773345024112,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.009993108201240495,-0.9993108201240495,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.04254787234042558,4.254787234042558,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.053304221251819564,5.330422125181957,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.015602055800293581,1.5602055800293582,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.01750291715285878,1.7502917152858781,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.002545608824777205,-0.25456088247772046,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.0006150061500615967,0.06150061500615967,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.04,-4.0,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.11288248907174082,11.288248907174083,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.1153797180536607,11.53797180536607,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.004635549872122748,-0.46355498721227484,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.03450000000000003,3.450000000000003,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.013766233766233796,-1.3766233766233795,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.004554573550940755,0.4554573550940755,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.032428208634499,-3.2428208634499,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.04,-4.0,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,0.03793002058218169,3.7930020582181685,1.0
+Moderate Confidence (0% < Pred < 3.5%),60,-0.04,-4.0,1.0
+Moderate Confidence (0% < Pred < 3.5%),90,0.023612750885478158,2.3612750885478158,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.04,-4.0,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.013209808719971941,1.320980871997194,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.006487488415199285,-0.6487488415199285,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.05795148247978433,5.795148247978433,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.01769273743016745,1.7692737430167451,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.04,-4.0,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.007056870070568624,0.7056870070568624,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.04,-4.0,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.12374001832700617,12.374001832700616,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.01769273743016745,1.7692737430167451,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.016479894528675015,-1.6479894528675016,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.0068772287315334475,-0.6877228731533448,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.035072336694432146,3.5072336694432145,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.019986216402481112,-1.9986216402481112,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.053718085106383075,5.371808510638307,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.056768558951964976,5.676855895196498,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.02165932452276064,2.165932452276064,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.014002333722287026,1.4002333722287026,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.004030547305897279,-0.40305473058972785,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.0030750307503075464,0.30750307503075464,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.04,-4.0,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.14502185651838512,14.502185651838511,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.13142337426102763,13.142337426102763,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.003836317135549904,0.3836317135549904,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,,,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.02363636363636355,-2.363636363636355,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.030146939218131552,-3.014693921813155,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.027153740965032244,-2.7153740965032243,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.04,-4.0,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,0.03410761540723307,3.410761540723307,1.5
+Moderate Confidence (0% < Pred < 3.5%),90,-0.04,-4.0,1.5
+Moderate Confidence (0% < Pred < 3.5%),120,0.014165289256198301,1.4165289256198301,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.009439144983269173,0.9439144983269173,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.0012743280815571553,-0.12743280815571553,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.0653638814016173,6.536388140161729,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.020949720670391064,2.0949720670391065,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.00415110004151106,-0.415110004151106,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.10178033774054203,10.178033774054203,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.020949720670391064,2.0949720670391065,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.012313777191825963,-1.2313777191825963,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.0062404482934283615,0.6240448293428361,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.011836913634370873,1.1836913634370874,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.01740179186767743,-1.740179186767743,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.053718085106383075,5.371808510638307,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.06210577389616696,6.210577389616696,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.02716593245227601,2.716593245227601,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.009918319719953425,0.9918319719953426,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.005939753924480296,-0.5939753924480295,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.0015375153751538825,0.15375153751538825,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.10709694008742605,10.709694008742606,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.10391086857662575,10.391086857662575,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.003037084398977059,0.3037084398977059,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,,,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.031948051948051864,-3.1948051948051863,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.02246532525883973,-2.246532525883973,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,0.028374007644810243,2.8374007644810244,2.0
+Moderate Confidence (0% < Pred < 3.5%),120,-0.04,-4.0,2.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.016765053128689512,1.6765053128689513,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.011037307096838533,1.1037307096838533,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.003938832252085304,-0.39388322520853036,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.05020215633423175,5.020215633423176,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.012290502793296026,1.2290502793296025,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.009547530095475319,-0.9547530095475318,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.10983112972902213,10.983112972902214,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.012290502793296026,1.2290502793296025,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.010616403464085456,1.0616403464085455,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.002192021043401892,0.21920210434018922,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.015161957270847735,-1.5161957270847735,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.053718085106383075,5.371808510638307,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.04075691411935953,4.075691411935953,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.027533039647577095,2.7533039647577096,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.0010696227148969217,0.10696227148969217,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.002969876962240148,-0.2969876962240148,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.00922509225092264,0.922509225092264,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.06839804577012094,6.839804577012094,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.06002728512960422,6.002728512960422,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.0004795396419437522,0.04795396419437522,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,,,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.02415584415584415,-2.415584415584415,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.028814221527642146,-2.8814221527642148,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,0.043810643928256246,4.381064392825625,3.0
+Moderate Confidence (0% < Pred < 3.5%),180,-0.04,-4.0,3.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.009681227863046132,0.9681227863046131,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.013484492833241716,1.3484492833241717,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.0016218721037996567,0.16218721037996567,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,,,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,,,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,,,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,,,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,,,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.010952623535404986,-1.0952623535404986,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.028040333187198507,2.804033318719851,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.014989662301860742,-1.4989662301860742,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.053718085106383075,5.371808510638307,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.03784570596797677,3.784570596797677,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.02404552129221724,2.4045521292217242,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.0033061065733178082,-0.3306106573317808,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.0012728044123886779,0.12728044123886778,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.006746617466174669,-0.6746617466174669,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.07418359475443553,7.418359475443554,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.027967257844474694,2.7967257844474696,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.0182225063938619,1.8222506393861901,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,,,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.010129870129870145,-1.0129870129870144,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.030670052744676702,-3.0670052744676704,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,0.0785945310202881,7.85945310202881,4.0
+Moderate Confidence (0% < Pred < 3.5%),240,-0.04,-4.0,4.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.005430932703659902,-0.5430932703659902,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.0020975877740597687,0.20975877740597687,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.016322984244671063,-1.6322984244671064,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.016301579215486514,-1.6301579215486515,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.014128187456926263,-1.4128187456926262,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.0463367297428432,4.63367297428432,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.01945668135095439,1.945668135095439,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.005834305717619686,0.5834305717619686,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.009758167161646179,0.9758167161646178,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.007995079950799665,0.7995079950799665,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.08922602211365387,8.922602211365387,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.054570259208731216,5.4570259208731215,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.02301790281329931,2.301790281329931,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,,,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.01870129870129867,-1.870129870129867,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,0.12996177594825048,12.996177594825047,6.0
+Moderate Confidence (0% < Pred < 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),30,-0.03499079189686935,-3.499079189686935,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.08745021104571671,8.74502110457167,0.5
+High Confidence (Pred > 3.5%),30,0.07727272727272727,7.727272727272727,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.053047404063205295,5.30474040632053,0.5
+High Confidence (Pred > 3.5%),30,0.04434480953004324,4.434480953004324,0.5
+High Confidence (Pred > 3.5%),30,0.337710317813585,33.7710317813585,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.017282277194171518,1.7282277194171518,0.5
+High Confidence (Pred > 3.5%),30,0.1578539308419909,15.78539308419909,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.021674876847290702,2.1674876847290703,0.5
+High Confidence (Pred > 3.5%),30,0.003763089005235551,0.3763089005235551,0.5
+High Confidence (Pred > 3.5%),30,-0.03530210454854037,-3.5302104548540365,0.5
+High Confidence (Pred > 3.5%),30,-0.0005437737901032088,-0.05437737901032088,0.5
+High Confidence (Pred > 3.5%),30,0.020434782608695603,2.04347826086956,0.5
+High Confidence (Pred > 3.5%),30,0.2042076377772696,20.42076377772696,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.014637672429371595,1.4637672429371595,0.5
+High Confidence (Pred > 3.5%),30,-0.01887705711519848,-1.887705711519848,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.02867469879518067,2.867469879518067,0.5
+High Confidence (Pred > 3.5%),30,0.09367816091954023,9.367816091954023,0.5
+High Confidence (Pred > 3.5%),30,0.049531459170013406,4.953145917001341,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.08662224500256285,8.662224500256285,0.5
+High Confidence (Pred > 3.5%),30,-0.04,-4.0,0.5
+High Confidence (Pred > 3.5%),30,0.04743354720439964,4.743354720439965,0.5
+High Confidence (Pred > 3.5%),30,0.048438751000800674,4.8438751000800675,0.5
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.11360799001248446,11.360799001248447,1.0
+High Confidence (Pred > 3.5%),60,0.045454545454545456,4.545454545454546,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.04063769751692995,4.063769751692995,1.0
+High Confidence (Pred > 3.5%),60,0.09845005890823408,9.845005890823408,1.0
+High Confidence (Pred > 3.5%),60,0.2789112436570818,27.89112436570818,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.036546933242968545,3.6546933242968547,1.0
+High Confidence (Pred > 3.5%),60,0.1702108854085904,17.02108854085904,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.027093596059113333,2.709359605911333,1.0
+High Confidence (Pred > 3.5%),60,-0.0026178010471204793,-0.26178010471204793,1.0
+High Confidence (Pred > 3.5%),60,-0.01663272233536994,-1.6632722335369938,1.0
+High Confidence (Pred > 3.5%),60,-0.014138118542686134,-1.4138118542686133,1.0
+High Confidence (Pred > 3.5%),60,-0.006521739130434721,-0.652173913043472,1.0
+High Confidence (Pred > 3.5%),60,0.2888177452549736,28.881774525497363,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.03487741702307085,3.487741702307085,1.0
+High Confidence (Pred > 3.5%),60,-0.006776379477250754,-0.6776379477250754,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.045889156626506084,4.588915662650608,1.0
+High Confidence (Pred > 3.5%),60,0.1065440613026821,10.65440613026821,1.0
+High Confidence (Pred > 3.5%),60,0.05555555555555556,5.555555555555556,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,0.05176832393644293,5.176832393644293,1.0
+High Confidence (Pred > 3.5%),60,-0.04,-4.0,1.0
+High Confidence (Pred > 3.5%),60,-0.019679193400550004,-1.9679193400550004,1.0
+High Confidence (Pred > 3.5%),60,0.09067253803042435,9.067253803042435,1.0
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.12014743475417637,12.014743475417637,1.5
+High Confidence (Pred > 3.5%),90,0.0419090909090909,4.1909090909090905,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.04063769751692995,4.063769751692995,1.5
+High Confidence (Pred > 3.5%),90,0.12374001832700617,12.374001832700616,1.5
+High Confidence (Pred > 3.5%),90,0.16766847680940083,16.766847680940085,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.022026431718061745,2.2026431718061743,1.5
+High Confidence (Pred > 3.5%),90,0.1837494185144983,18.37494185144983,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.05566502463054182,5.566502463054182,1.5
+High Confidence (Pred > 3.5%),90,0.0045811518324606355,0.45811518324606354,1.5
+High Confidence (Pred > 3.5%),90,-0.008995247793618485,-0.8995247793618485,1.5
+High Confidence (Pred > 3.5%),90,-0.007069059271343067,-0.7069059271343067,1.5
+High Confidence (Pred > 3.5%),90,-0.02673913043478254,-2.673913043478254,1.5
+High Confidence (Pred > 3.5%),90,0.31488680539675273,31.488680539675272,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.05993614842479362,5.993614842479362,1.5
+High Confidence (Pred > 3.5%),90,-0.005808325266214956,-0.5808325266214955,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.055421686746987886,5.542168674698789,1.5
+High Confidence (Pred > 3.5%),90,0.19923371647509588,19.923371647509587,1.5
+High Confidence (Pred > 3.5%),90,0.03346720214190094,3.3467202141900936,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,0.1465914915427987,14.659149154279872,1.5
+High Confidence (Pred > 3.5%),90,-0.04,-4.0,1.5
+High Confidence (Pred > 3.5%),90,-0.021998166819431734,-2.1998166819431733,1.5
+High Confidence (Pred > 3.5%),90,0.09207365892714174,9.207365892714174,1.5
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.11420248498900189,11.42024849890019,2.0
+High Confidence (Pred > 3.5%),120,0.022727272727272728,2.272727272727273,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.053047404063205295,5.30474040632053,2.0
+High Confidence (Pred > 3.5%),120,0.10178033774054203,10.178033774054203,2.0
+High Confidence (Pred > 3.5%),120,0.18801744858897895,18.801744858897894,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.04269739071501191,4.269739071501191,2.0
+High Confidence (Pred > 3.5%),120,0.21320204682896565,21.320204682896566,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.05566502463054182,5.566502463054182,2.0
+High Confidence (Pred > 3.5%),120,0.005235602094240842,0.5235602094240842,2.0
+High Confidence (Pred > 3.5%),120,-0.005431093007467758,-0.5431093007467758,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.32174708438143146,32.17470843814315,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.07432533582314306,7.432533582314306,2.0
+High Confidence (Pred > 3.5%),120,-0.005808325266214956,-0.5808325266214955,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.0901204819277109,9.01204819277109,2.0
+High Confidence (Pred > 3.5%),120,0.17892720306513415,17.892720306513414,2.0
+High Confidence (Pred > 3.5%),120,0.026773761713520774,2.677376171352077,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,0.19015889287544852,19.01588928754485,2.0
+High Confidence (Pred > 3.5%),120,-0.04,-4.0,2.0
+High Confidence (Pred > 3.5%),120,-0.03299725022914752,-3.299725022914752,2.0
+High Confidence (Pred > 3.5%),120,0.09227381905524418,9.227381905524418,2.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.16170263361274606,16.170263361274607,3.0
+High Confidence (Pred > 3.5%),180,0.00909090909090909,0.9090909090909091,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,-0.015801354401805936,-1.5801354401805936,3.0
+High Confidence (Pred > 3.5%),180,0.10983112972902213,10.983112972902214,3.0
+High Confidence (Pred > 3.5%),180,0.2522923528888098,25.22923528888098,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.20738732633005763,20.738732633005764,3.0
+High Confidence (Pred > 3.5%),180,0.20065126376182352,20.065126376182352,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.05566502463054182,5.566502463054182,3.0
+High Confidence (Pred > 3.5%),180,0.005890052356020933,0.5890052356020933,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.4703864623828035,47.03864623828035,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.10228299500030114,10.228299500030113,3.0
+High Confidence (Pred > 3.5%),180,0.0019361084220715947,0.19361084220715946,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.07727228915662654,7.7272289156626535,3.0
+High Confidence (Pred > 3.5%),180,0.18390804597701152,18.390804597701152,3.0
+High Confidence (Pred > 3.5%),180,0.03815261044176709,3.815261044176709,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.13762173244490017,13.762173244490016,3.0
+High Confidence (Pred > 3.5%),180,-0.04,-4.0,3.0
+High Confidence (Pred > 3.5%),180,0.0027497708524289056,0.27497708524289055,3.0
+High Confidence (Pred > 3.5%),180,0.11569255404323461,11.569255404323462,3.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.1221496938350872,12.21496938350872,4.0
+High Confidence (Pred > 3.5%),240,-0.0195454545454546,-1.95454545454546,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.011286681715575581,1.1286681715575582,4.0
+High Confidence (Pred > 3.5%),240,,,4.0
+High Confidence (Pred > 3.5%),240,0.24377014154722693,24.377014154722694,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.23364961030159279,23.36496103015928,4.0
+High Confidence (Pred > 3.5%),240,0.24732516669251042,24.73251666925104,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.05566502463054182,5.566502463054182,4.0
+High Confidence (Pred > 3.5%),240,0.003272251308900454,0.3272251308900454,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.42545163503315797,42.5451635033158,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.11234262996205034,11.234262996205034,4.0
+High Confidence (Pred > 3.5%),240,0.015488867376573102,1.5488867376573103,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.07727228915662654,7.7272289156626535,4.0
+High Confidence (Pred > 3.5%),240,0.12758620689655178,12.758620689655178,4.0
+High Confidence (Pred > 3.5%),240,0.0036813922356090842,0.36813922356090845,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.09687339825730397,9.687339825730398,4.0
+High Confidence (Pred > 3.5%),240,-0.04,-4.0,4.0
+High Confidence (Pred > 3.5%),240,0.03253895508707612,3.253895508707612,4.0
+High Confidence (Pred > 3.5%),240,0.09807846277021615,9.807846277021614,4.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.12894596040663456,12.894596040663457,6.0
+High Confidence (Pred > 3.5%),360,,,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.0237020316027087,2.37020316027087,6.0
+High Confidence (Pred > 3.5%),360,,,6.0
+High Confidence (Pred > 3.5%),360,0.2595922727677379,25.959227276773788,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.2370382921043714,23.703829210437142,6.0
+High Confidence (Pred > 3.5%),360,0.23079547216622723,23.07954721662272,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.07290640394088672,7.290640394088673,6.0
+High Confidence (Pred > 3.5%),360,0.006871727748691011,0.6871727748691011,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.542190715755774,54.2190715755774,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.09915065357508572,9.915065357508572,6.0
+High Confidence (Pred > 3.5%),360,0.02274927395934167,2.2749273959341667,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.06987951807228912,6.987951807228912,6.0
+High Confidence (Pred > 3.5%),360,0.15555555555555564,15.555555555555564,6.0
+High Confidence (Pred > 3.5%),360,0.054216867469879436,5.421686746987944,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.11426960533059978,11.426960533059978,6.0
+High Confidence (Pred > 3.5%),360,-0.04,-4.0,6.0
+High Confidence (Pred > 3.5%),360,0.031159486709440878,3.115948670944088,6.0
+High Confidence (Pred > 3.5%),360,0.09807846277021615,9.807846277021614,6.0
